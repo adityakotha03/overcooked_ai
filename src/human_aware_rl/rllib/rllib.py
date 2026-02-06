@@ -16,7 +16,6 @@ from ray.rllib.env.multi_agent_env import MultiAgentEnv
 from ray.rllib.models import ModelCatalog
 from ray.tune.logger import UnifiedLogger
 from ray.tune.registry import register_env
-from ray.tune.result import DEFAULT_RESULTS_DIR
 
 from human_aware_rl.rllib.utils import (
     get_base_ae,
@@ -31,6 +30,7 @@ from overcooked_ai_py.mdp.overcooked_mdp import EVENT_TYPES
 action_space = gymnasium.spaces.Discrete(len(Action.ALL_ACTIONS))
 obs_space = gymnasium.spaces.Discrete(len(Action.ALL_ACTIONS))
 timestr = datetime.today().strftime("%Y-%m-%d_%H-%M-%S")
+DEFAULT_RESULTS_DIR = os.path.expanduser("~/ray_results")
 
 
 class RlLibAgent(Agent):
